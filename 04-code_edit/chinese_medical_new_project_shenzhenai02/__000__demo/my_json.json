@@ -1,0 +1,6 @@
+{
+  "cypher": [
+    "MATCH (s:Symptom)-[:ALLEVIATES_SYMPTOM]-(h:Herb) WHERE s.name IN ['头疼', '头痛', '头顶痛'] RETURN DISTINCT h.name AS herb_name, h.effect AS effect, h.indication AS indication ORDER BY herb_name",
+    "MATCH (s:Symptom)-[:ALLEVIATES_SYMPTOM]-(f:Formula) WHERE s.name IN ['头疼', '头痛', '头顶痛'] RETURN DISTINCT f.name AS formula_name, f.effect AS effect, f.indication AS indication ORDER BY formula_name"
+  ]
+}

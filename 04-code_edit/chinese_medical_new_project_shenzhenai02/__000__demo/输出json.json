@@ -1,0 +1,11 @@
+{
+  "input": "今天我头疼，我该吃什么药。",
+  "matched_diseases": [
+    "头疼",
+    "头痛"
+  ],
+  "cypher_query": [
+    "MATCH (d:Disease) WHERE d.name IN ['头疼', '头痛'] MATCH (f:Formula)-[:TREATS_DISEASE]->(d) RETURN DISTINCT f.name AS formula_name, f.indication AS indication, f.ingredients AS ingredients, f.usage AS usage, f.taboo AS taboo",
+    "MATCH (d:Disease) WHERE d.name IN ['头疼', '头痛'] MATCH (h:Herb)-[:TREATS_DISEASE]->(d) RETURN DISTINCT h.name AS herb_name, h.indication AS indication, h.effect AS effect, h.usage AS usage, h.taboo AS taboo"
+  ]
+}

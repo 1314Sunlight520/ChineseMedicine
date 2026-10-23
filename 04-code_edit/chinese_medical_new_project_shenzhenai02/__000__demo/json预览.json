@@ -1,0 +1,21 @@
+{
+  "entities": [
+    {
+      "name": "一品红",
+      "type": "Herb",
+      "attributes": {
+        "alias": "二月红",
+        "taboo": "禁止孕妇使用"
+      }
+    }
+  ],
+  "relations": [
+    {
+      "subject": "一品红",
+      "subject_type": "Herb",
+      "relation": "TREATS_DISEASE",
+      "object": "感冒",
+      "object_type": "Disease"
+    }
+  ]
+}

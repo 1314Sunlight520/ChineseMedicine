@@ -1,0 +1,258 @@
+{
+  "labels": [
+    {
+      "name": "Symptom",
+      "description": "症状，指疾病过程中患者主观感受到的异常感觉或客观检查发现的异常表现，如咳嗽、腹痛、发热等",
+      "properties": [
+        {
+          "name": "name",
+          "description": "症状名称"
+        }
+      ]
+    },
+    {
+      "name": "Disease",
+      "description": "疾病，指人体在一定条件下由致病因素引起的一种复杂而有一定表现形式的病理过程，如感冒、肺炎、肾虚等",
+      "properties": [
+        {
+          "name": "name",
+          "description": "疾病名称"
+        }
+      ]
+    },
+    {
+      "name": "Effect",
+      "description": "功效，指药物或方剂在治疗疾病时所产生的治疗作用，如补气、活血、祛湿、止痛等",
+      "properties": [
+        {
+          "name": "name",
+          "description": "功效名称"
+        }
+      ]
+    },
+    {
+      "name": "Formula",
+      "description": "方剂，指按照中医理论，将多种药物按一定比例和用法组合而成的处方，如四君子汤、桂枝汤等",
+      "properties": [
+        {
+          "name": "alias",
+          "description": "方剂别名"
+        },
+        {
+          "name": "effect",
+          "description": "方剂功效"
+        },
+        {
+          "name": "from_source",
+          "description": "方剂出处来源"
+        },
+        {
+          "name": "indication",
+          "description": "适应症，方剂适用的病症"
+        },
+        {
+          "name": "ingredients",
+          "description": "方剂组成成分"
+        },
+        {
+          "name": "name",
+          "description": "方剂名称"
+        },
+        {
+          "name": "taboo",
+          "description": "禁忌，使用方剂的注意事项和禁忌"
+        },
+        {
+          "name": "usage",
+          "description": "用法，方剂的使用方法和用量"
+        }
+      ]
+    },
+    {
+      "name": "Herb",
+      "description": "药材，指用于预防、治疗疾病和调节人体机能的天然药物，如人参、黄芪、丁香等",
+      "properties": [
+        {
+          "name": "alias",
+          "description": "药材别名"
+        },
+        {
+          "name": "dosage",
+          "description": "剂量，药材的使用量"
+        },
+        {
+          "name": "effect",
+          "description": "药材功效"
+        },
+        {
+          "name": "indication",
+          "description": "适应症，药材适用的病症"
+        },
+        {
+          "name": "meridian",
+          "description": "归经，药材作用的经络和脏腑"
+        },
+        {
+          "name": "name",
+          "description": "药材名称"
+        },
+        {
+          "name": "origin",
+          "description": "药材来源，药材的植物或动物来源"
+        },
+        {
+          "name": "place",
+          "description": "产地，药材的主要产地"
+        },
+        {
+          "name": "processing",
+          "description": "炮制方法，药材的加工处理方法"
+        },
+        {
+          "name": "property_flavor",
+          "description": "性味，药材的四气五味属性"
+        },
+        {
+          "name": "taboo",
+          "description": "禁忌，使用药材的注意事项和禁忌"
+        },
+        {
+          "name": "traits",
+          "description": "性状，药材的形态特征"
+        },
+        {
+          "name": "usage",
+          "description": "用法，药材的使用方法"
+        }
+      ]
+    },
+    {
+      "name": "Source",
+      "description": "出处，指方剂或药材来源的文献典籍，如《本草纲目》《伤寒论》等",
+      "properties": [
+        {
+          "name": "name",
+          "description": "文献名称"
+        }
+      ]
+    }
+  ],
+  "relationships": [
+    {
+      "type": "TREATS_DISEASE",
+      "description": "治疗疾病，表示方剂或药材可以治疗某种疾病",
+      "properties": []
+    },
+    {
+      "type": "ALLEVIATES_SYMPTOM",
+      "description": "缓解症状，表示方剂或药材可以缓解或改善某种症状",
+      "properties": []
+    },
+    {
+      "type": "FROM_SOURCE",
+      "description": "出自来源，表示方剂或药材来源于某文献典籍",
+      "properties": []
+    },
+    {
+      "type": "HAS_EFFECT",
+      "description": "具有功效，表示方剂或药材具有某种治疗功效",
+      "properties": []
+    },
+    {
+      "type": "HAS_INGREDIENT",
+      "description": "包含成分，表示方剂包含某种药材，或药材包含其他药材成分",
+      "properties": []
+    },
+    {
+      "type": "HAS_SYMPTOM",
+      "description": "包含症状，表示疾病包含或表现为某种症状",
+      "properties": []
+    }
+  ],
+  "triples": [
+    {
+      "from": "Herb",
+      "rel_type": "TREATS_DISEASE",
+      "to": "Disease",
+      "description": "药材可以治疗疾病，表示某种药材对特定疾病有治疗作用"
+    },
+    {
+      "from": "Herb",
+      "rel_type": "ALLEVIATES_SYMPTOM",
+      "to": "Symptom",
+      "description": "药材可以缓解症状，表示某种药材对特定症状有缓解作用"
+    },
+    {
+      "from": "Source",
+      "rel_type": "FROM_SOURCE",
+      "to": "Herb",
+      "description": "文献来源包含药材信息，表示某文献中记载了该药材（注意：此关系方向可能需要调整）"
+    },
+    {
+      "from": "Herb",
+      "rel_type": "HAS_EFFECT",
+      "to": "Effect",
+      "description": "药材具有功效，表示某种药材具有特定的治疗功效"
+    },
+    {
+      "from": "Formula",
+      "rel_type": "FROM_SOURCE",
+      "to": "Source",
+      "description": "方剂出自文献，表示某方剂来源于特定的文献典籍"
+    },
+    {
+      "from": "Herb",
+      "rel_type": "FROM_SOURCE",
+      "to": "Source",
+      "description": "药材出自文献，表示某药材来源于特定的文献典籍"
+    },
+    {
+      "from": "Formula",
+      "rel_type": "HAS_INGREDIENT",
+      "to": "Herb",
+      "description": "方剂包含药材，表示某方剂由特定药材组成"
+    },
+    {
+      "from": "Formula",
+      "rel_type": "TREATS_DISEASE",
+      "to": "Disease",
+      "description": "方剂可以治疗疾病，表示某方剂对特定疾病有治疗作用"
+    },
+    {
+      "from": "Formula",
+      "rel_type": "ALLEVIATES_SYMPTOM",
+      "to": "Symptom",
+      "description": "方剂可以缓解症状，表示某方剂对特定症状有缓解作用"
+    },
+    {
+      "from": "Herb",
+      "rel_type": "HAS_INGREDIENT",
+      "to": "Herb",
+      "description": "药材包含其他药材，表示某药材由其他药材组成或包含其他药材成分"
+    },
+    {
+      "from": "Herb",
+      "rel_type": "ALLEVIATES_SYMPTOM",
+      "to": "Disease",
+      "description": "药材可以缓解疾病（注意：此关系可能应为TREATS_DISEASE，此处可能是数据错误）"
+    },
+    {
+      "from": "Formula",
+      "rel_type": "HAS_EFFECT",
+      "to": "Effect",
+      "description": "方剂具有功效，表示某方剂具有特定的治疗功效"
+    },
+    {
+      "from": "Disease",
+      "rel_type": "HAS_SYMPTOM",
+      "to": "Symptom",
+      "description": "疾病包含症状，表示某疾病会表现出特定的症状"
+    },
+    {
+      "from": "Formula",
+      "rel_type": "HAS_INGREDIENT",
+      "to": "Formula",
+      "description": "方剂包含其他方剂，表示某方剂由其他方剂组成或包含其他方剂作为成分"
+    }
+  ]
+}

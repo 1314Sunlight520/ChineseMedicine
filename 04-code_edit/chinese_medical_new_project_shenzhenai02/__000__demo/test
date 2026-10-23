@@ -1,0 +1,1 @@
+MATCH (d:Disease) WHERE d.name IN ['头疼', '头痛'] MATCH (f:Formula)-[:TREATS_DISEASE]->(d) RETURN DISTINCT f.name AS formula_name, f.indication AS indication, f.ingredients AS ingredients, f.usage AS usage, f.taboo AS taboo
